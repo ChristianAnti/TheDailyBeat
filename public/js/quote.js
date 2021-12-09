@@ -1,3 +1,5 @@
+var quoteContainer = $('#quote-container')
+
 // Quote API Function
 function getQuote() {
     fetch("https://type.fit/api/quotes")
@@ -5,7 +7,7 @@ function getQuote() {
             return res.json()
         })
         .then(data => {
-            // Choose a random quote from quote array (data comes back as an array of objects which contain text and author)
+            // Random quote and Author details from array
             let chosenQuote = data[Math.floor(Math.random() * data.length)]
             let author = ''
             if (chosenQuote.author == null) {
@@ -25,3 +27,6 @@ function getQuote() {
 }
 
 getQuote()
+
+// Get a new quote on button click
+$('#quoteBtn').on('click', getQuote)
