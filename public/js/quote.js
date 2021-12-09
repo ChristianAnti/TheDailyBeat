@@ -13,15 +13,15 @@ function getQuote() {
             } else {
                 author = chosenQuote.author
             }
-  
+
             quoteContainer.addClass('animate__fadeIn')
             setTimeout(() => {
                 quoteContainer.removeClass('animate__fadeIn')
             }, 1000)
-  
+
             quoteContainer.empty()
             quoteContainer.append(`"${chosenQuote.text}" -${author}`)
         })
-  }
-  
-  getQuote()
+}
+
+getQuote()
