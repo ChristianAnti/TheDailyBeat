@@ -14,3 +14,8 @@ body {background-color: rgb(117, 137, 155);};
 
 
 }
+#quoteBtn {
+	font-size: 15px;
+	background-color: whitesmoke;
+	margin-bottom: 30px;
+}
