@@ -23,11 +23,12 @@ const loginEventHandler = async (event) => {
   }
 };
 
+// need to create the handlebars for this with the class -- login-form --
 document.querySelector(".login-form").addEventListener("submit", loginEventHandler);
 
 
 // ------------------------------------------------------------------------------------------------------------------------------------
-// OLD CODE TO REFER BACK 2
+// OLD CODE TO REFER IF NEEDED
 
 // $(document).ready(function() {
 //   // Getting references to our form and inputs
