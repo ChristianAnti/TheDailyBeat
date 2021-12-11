@@ -2,6 +2,7 @@
 var bcrypt = require("bcryptjs");
 
 
+
 // Creating our User model
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
@@ -31,3 +32,4 @@ module.exports = function(sequelize, DataTypes) {
   });
   return User;
 };
+
