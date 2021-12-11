@@ -7,3 +7,7 @@ const notesData = [
         note: "get to the store before it closes"
     }
 ];
+
+const seedNotes = () => notes.bulkCreate(notesData);
+
+module.exports = seedNotes;
