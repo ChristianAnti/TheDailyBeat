@@ -1,4 +1,21 @@
-form.signup,
+/* form.signup,
 form.login {
   margin-top: 50px;
+} */
+
+body {background-color: rgb(117, 137, 155);};
+.bg {background-color:white ;
+
+}
+.form-conteiner {border:1px solid white;
+  padding: 50px 60px;
+  margin-top: 20vh;
+  box-shadow: 10px 5px 5px white;
+
+
+}
+#quoteBtn {
+	font-size: 15px;
+	background-color: whitesmoke;
+	margin-bottom: 30px;
 }
