@@ -19,3 +19,40 @@ body {background-color: rgb(117, 137, 155);};
 	background-color: whitesmoke;
 	margin-bottom: 30px;
 }
+.nav-header{
+  color: white;
+}
+h1 {
+  text-align: center;
+}
+#current-time{
+  text-align: center;
+  color: white;
+}
+.main-planner{
+  /* border: purple 5px solid; */
+  /* display: flex; */
+  padding-top: 50px;
+}
+.notes-list{
+  /* border: pink 3px solid; */
+}
+.saved-notes{
+  /* border: purple 3px solid; */
+}
+.planner-apps{
+  /* border: red 3px solid; */
+  width: 65%;
+}
+.addt-apps{
+  padding-top: 50px;
+}
+.new-notes{
+  /* border: blue 3px solid; */
+}
+.weather{
+  /* border: green 3px solid; */
+}
+.quote{
+  /* border: orange 3px solid; */
+}
