@@ -14,8 +14,17 @@ body {background-color: rgb(117, 137, 155);};
 
 
 }
+
+/* Inspirational Quote */
 #quoteBtn {
 	font-size: 15px;
 	background-color: whitesmoke;
 	margin-bottom: 30px;
+}
+
+/* Weather */
+/* fontawesome magnifying glass icon */
+#search-button-icon{
+  width:15px;
+  display:inline-block;
 }
