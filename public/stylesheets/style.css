@@ -9,8 +9,17 @@ body {background-color: rgb(117, 137, 155);};
 }
 .form-conteiner {border:1px solid white;
   padding: 50px 60px;
-  margin-top: 20vh;
+  margin-top: 5vh;
   box-shadow: 10px 5px 5px white;
+
+
+}
+.card-body { 
+  justify-content: center;
+  padding: 50px 60px;
+  font-size: 50px;
+  font-weight: 400;
+  color: black;
 
 
 }
