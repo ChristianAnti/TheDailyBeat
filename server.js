@@ -1,13 +1,14 @@
 // setting requires 
 const path = require("path");
 const express = require("express");
-const session = require("express-session");
 // handlebars setup/requires
+const Sequelize = require("sequelize");
+const session = require("express-session");
 const exphbs = require("express-handlebars");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-const hbs = exphbs.create({});
 const sequelize = require("./config/connection");
-
+const hbs = exphbs.create({});
+const routes = require("./controllers");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -29,17 +30,19 @@ const sess = {
 // Creating express app and configuring middleware needed for authentication
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static("./public"));
 
 // Requiring our routes
-require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
+// require("./routes/html-routes.js")(app);
+// require("./routes/api-routes.js")(app);
+app.use(routes);
 
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
 
 // We need to use sessions to keep track of our user's login status
-app.use(session({ secret: "make this secret different for each project", resave: true, saveUninitialized: true }));
+// app.use(session({ secret: "make this secret different for each project", resave: true, saveUninitialized: true }));
+app.use(session(sess));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -52,10 +55,11 @@ app.use(function (req, res, next) {
 });
 
 // Syncing our database and logging a message to the user upon success
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
+
+
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, function () {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
   });
+
 });
-
-
