@@ -11,7 +11,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
+    username: { // have to configure the model to match for both the passport and frontend
       type: DataTypes.STRING,
     },
     password: {
