@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link href="stylesheets/style.css" rel="stylesheet">
+  <link href="../public/stylesheets/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -58,6 +58,48 @@
 </div>
 </div>
 
+{{!----------------------------- Calendar Section ------------------------------}}
+
+    <div id="calendar-container">
+      <div id="header">
+        <div class="headerGroup">
+          <div class="calTitle">The Daily Beat Calendar</div>
+          <div id="displayMonth"></div>
+          <div class="monthNavBtn">
+            <button id="backBtn">Back</button>
+            <button id="nextBtn">Next</button>
+          </div>
+        </div>
+      </div>
+      <div id="daysOfWeek">
+        <div class="weekDay">Sunday</div>
+        <div class="weekDay">Monday</div>
+        <div class="weekDay">Tuesday</div>
+        <div class="weekDay">Wednesday</div>
+        <div class="weekDay">Thursday</div>
+        <div class="weekDay">Friday</div>
+        <div class="weekDay">Saturday</div>
+      </div>
+      <div id="calApp"></div>
+    </div>
+    <div id="newEventInput">
+      <h2>New Event</h2>
+      <textarea id="eventTextInput" placeholder="Add Event"></textarea>
+      <button id="saveButton">Save</button>
+      <button id="cancelButton">Cancel</button>
+    </div>
+    <div id="deleteEventInput">
+      <h2>Delete Event</h2>
+      <p id="eventText"></p>
+      <div class="closeDeleteBtn">
+        <button id="deleteButton">Delete</button>
+        <button id="closeButton">Close</button>
+      </div>
+    </div>
+    <div id="backDropShadow"></div>
+    <script src="../public/js/calendar-script.js"></script>
+
+{{!----------------------------- Calendar Section ------------------------------}}
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"crossorigin="anonymous"></script>
