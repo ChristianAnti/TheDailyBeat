@@ -9,6 +9,11 @@ router.get("/", (req, res) => {
 router.post("/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
 });
+router.post("/signup", ) 
+
+router.post("/logOut", )
+
+
 
 module.exports = router;
 
