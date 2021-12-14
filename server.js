@@ -1,11 +1,12 @@
 // setting requires 
 const path = require("path");
 const express = require("express");
-const session = require("express-session");
 // handlebars setup/requires
-const sequelize = require("./config/connection");
+const Sequelize = require("sequelize");
+const session = require("express-session");
 const exphbs = require("express-handlebars");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const sequelize = require("./config/connection");
 const hbs = exphbs.create({});
 const routes = require("./controllers");
 const app = express();
@@ -29,7 +30,7 @@ const sess = {
 // Creating express app and configuring middleware needed for authentication
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static("./public"));
 
 // Requiring our routes
 // require("./routes/html-routes.js")(app);
@@ -55,8 +56,10 @@ app.use(function (req, res, next) {
 
 // Syncing our database and logging a message to the user upon success
 
-app.listen(PORT, function () {
-  console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, function () {
+    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+  });
+
 });
-
-
