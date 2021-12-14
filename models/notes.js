@@ -28,4 +28,4 @@ notes.init(
     }
 );
 
-exports.notes = notes;
+module.exports = notes;
