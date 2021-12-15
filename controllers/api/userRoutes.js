@@ -29,16 +29,17 @@ router.post('/signup', async (req, res) => {
             passport.authenticate("local")(req, res, function () {
                 res.redirect('/members')
             })
-        }else
-        res.redirect(307, "/api/login");
+        } else
+            res.redirect(307, "/api/login");
     } catch (err) {
         res.status(400).json(err);
     }
 });
 
 router.post("/logout", async (req, res) => {
-
-})
+    req.logout();
+    res.redirect('/');
+});
 
 
 module.exports = router;

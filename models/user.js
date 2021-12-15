@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const bcrypt = require("bcryptjs")
+const bcrypt = require("bcrypt")
 
 class User extends Model {
   checkPassword(loginPw) {
@@ -19,6 +19,8 @@ User.init(
     },
     username: { // have to configure the model to match for both the passport and frontend // add valadation 
       type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
     password: {
       type: DataTypes.STRING,
@@ -27,11 +29,15 @@ User.init(
   {
     hooks: {
       beforeCreate: async (newUserData) => {
-        newUserData.password = await bcrypt.hash(newUserData.password, 416);
+        console.log("trying to hash password");
+        newUserData.password = await bcrypt.hash(newUserData.password, 13);
+        console.log("finish hash password");
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 416);
+        console.log("before update");
+        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 13);
+        console.log("after update");
         return updatedUserData;
       },
     },
