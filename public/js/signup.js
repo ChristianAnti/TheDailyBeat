@@ -1,17 +1,17 @@
 const signupEventHandler = async (event) => {
   event.preventDefault();
-  const username = document.querySelector("#input-username").value.trim();
-  const password = document.querySelector("#input-password").value.trim();
+  const username = document.querySelector("#username").value.trim();
+  const password = document.querySelector("#password").value.trim();
 
   if (username && password) {
-    const response = await fetch("/api/users", {
+    const response = await fetch("/api/user/signup", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
     });
-
+    console.log(response);
     if (response.ok) {
-      document.location.replace("/dashboard");
+      document.location.replace("/members");
     } else {
       alert("Failed to sign up.");
     }
@@ -24,7 +24,7 @@ const signupEventHandler = async (event) => {
 };
 
 // need to create the handlebars for this with the class -- signup-form --
-document.querySelector(".signup-form").addEventListener("submit", signupEventHandler);
+document.querySelector("#signup-form").addEventListener("submit", signupEventHandler);
 
 
 // ---------------------------------------------------------------------------------------------------------------------------
