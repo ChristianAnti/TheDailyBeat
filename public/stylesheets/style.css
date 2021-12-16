@@ -3,27 +3,79 @@ form.login {
   margin-top: 50px;
 } */
 
-body {background-color: rgb(117, 137, 155);};
-.bg {background-color:white ;
-
+:root {
+  --White-Smoke: #f5f5f5;
+  --Sky-Blue: #1B9CE2;
+  --Dodger-Blue: #4D8ADC;
+  --Slate-Blue: #7275CE;
+  --Purple-3: #8D5EB7;
+  --Magenta: #A14499;
+  --French-Rose: #AA2675;
+  --DeepDarkBlue: #180026;
 }
+
+/* body {background-color: rgb(117, 137, 155);};
+.bg {background-color:white ;} */
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 3em;
+  margin-top: 50px;
+  background-image: linear-gradient(to bottom left, #1B9CE2, 
+  #4D8ADC,#7275CE, #8D5EB7, #A14499, #AA2675);
+  background-repeat: no-repeat;
+}
+
+.navbar {
+  display: flex;
+  /* justify-content: center;   */
+  background-color: #FFC75F;
+  box-shadow: 10px 10px 2px 0 rgba(0, 0, 0, 0.438); 
+  /* margin-left: 20em; */
+  /* margin-top: 2em; */
+  border: none;
+}
+
+.navbar-brand {
+  font-size:xx-large;
+}
+
+#email-input,
+#password-input {
+  box-shadow: 5px 5px 2px 0 rgba(0, 0, 0, 0.438); 
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.card-body { 
+  display: flex;
+  flex-direction: column;
+  background-color:#D65DB1;
+  color: #4FFBDF;
+  /* background-color:#4FFBDF;
+  color: #D65DB1; */
+  border-radius: 5px;
+  padding: 30px 40px;
+  font-size: 40px;
+  font-weight: 400;
+  width: 770px;
+  box-shadow: 10px 10px 2px 0 rgba(0, 0, 0, 0.438); 
+}
+
 .form-conteiner {
   border:1px solid white;
   padding: 50px 60px;
   margin-top: 5vh;
-  box-shadow: 10px 5px 5px white;
-
-
-}
-.card-body { 
-  justify-content: center;
-  background-color: rgb(185, 193, 201);
-  padding: 50px 60px;
-  font-size: 50px;
-  font-weight: 400;
-  color: black;
-
-
+  box-shadow: 10px 10px 2px 0 rgba(0, 0, 0, 0.438); 
+  background-color: #4FFBDF;
+  border-radius: 5px;
 }
 
 /* Inspirational Quote */
@@ -40,9 +92,7 @@ body {background-color: rgb(117, 137, 155);};
   display:inline-block;
 }
 
-
-
-/* -------------------- Calendar CSS --------------------- */
+/* ------------------------Calendar---------------------------- */
 
 :root {
   --White-Smoke: #f5f5f5;
@@ -55,13 +105,18 @@ body {background-color: rgb(117, 137, 155);};
   --DeepDarkBlue: #180026;
 }
 
-body {
+.calendar {
+  display: flex;
+  justify-content: center;
+}
+
+/* body {
   display: flex;
   margin-top: 50px;
   justify-content: center;
   background-image: linear-gradient(to bottom left, #1B9CE2, 
   #4D8ADC,#7275CE, #8D5EB7, #A14499, #AA2675);
-}
+} */
 
 .calTitle {
   display: flex;
@@ -82,19 +137,20 @@ body {
 }
 
 .monthNavBtn {
-    display: flex;
-    justify-content: center;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
 }
 
 #nextBtn {
-    margin-left: -4em;
+    margin-left: -3em;
 }
 #backBtn {
-    margin-right: -4em;
+    margin-right: -3em;
 }
 
-button {
+#nextBtn,
+#backBtn {
   margin-bottom: 1em;
   width: 75px;
   cursor: pointer;
@@ -103,10 +159,19 @@ button {
   outline: none;
   padding: 5px;
   border-radius: 5px;
-  color: var(--White-Smoke);
+  /* color: var(--White-Smoke); */
+  background-color:#D65DB1;
+  color: #4FFBDF;
+  font-weight: bold;
+  font-size: 15px;
 }
 
-button:active {
+#nextBtn:active,
+#backBtn:active,
+#saveButton:active
+#cancelButton:active, 
+#deleteButton:active,
+#closeButton:active {
   transform: translate(2px, 2px);
   box-shadow: 2.5px 2.5px 1px 1px rgba(0, 0, 0, 0.438); 
 }
@@ -117,24 +182,31 @@ button:active {
 }
 
 #header {
+  margin-top: 3em;
   padding: 10px;
-  color: #d36c6c;
-  font-size: 26px;
+  /* color: #d36c6c; */
+  /* font-size: 26px; */
   font-family: sans-serif;
   display: flex;
   justify-content: center;
+  /* color: #4FFBDF;
+  font-weight: bold; */
 }
-#header button {
-  background-color:#D65DB1;
-  color: #4FFBDF;
-  font-weight: bold;
+
+.headerGroup {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
-#calendar-container {
+
+#container {
   width: 770px;
 }
 #daysOfWeek {
   width: 100%;
   display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
   color: #FFC75F;
   font-weight: bolder;
   font-size:large;
@@ -206,7 +278,7 @@ button:active {
   box-shadow: none !important; 
 }
 
-h2 {
+.newEvent {
   color: #00C9A7;  
 }
 
@@ -272,4 +344,4 @@ h2 {
   background-color: rgba(0,0,0,0.8);
 }
 
-/* -------------------- Calendar CSS --------------------- */
+/* ------------------------Calendar---------------------------- */
