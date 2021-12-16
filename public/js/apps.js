@@ -1,6 +1,31 @@
 // console.log("Connected");
 showNotes();
 
+// front end part of the adding notes 
+const newFormHandler = async (event) => {
+  event.preventDefault();
+  // add #notes-name, #notes-desc to the frontend // the querySelector for the adding notes .new-notes-form, .notes-list
+
+  const name = document.querySelector('#notes-name').value.trim();
+  const description = document.querySelector('#notes-desc').value.trim();
+
+  if (name && description) {
+    const response = await fetch(`/api/notes`, {
+      method: 'POST',
+      body: JSON.stringify({ name, description }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      document.location.replace('/members');
+    } else {
+      alert('Failed to create notes');
+    }
+  }
+};
+
 // If user adds a note, add it to the localStorage
 let addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", function(e) {
@@ -168,3 +193,12 @@ window.addEventListener('load', () => {
     });
   }
 });
+
+// the querySelector for the adding notes .new-notes-form, .notes-list
+document
+  .querySelector('.new-notes-form')
+  .addEventListener('submit', newFormHandler);
+
+document
+  .querySelector('.notes-list')
+  .addEventListener('click', delButtonHandler);
