@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
       <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
-  <link href="stylesheets/style.css" rel="stylesheet">
+  <link href="./stylesheets/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -61,6 +61,52 @@
     </div>
 </div>
 </div>
+
+<!-- ---------------------- Calendar --------------------------------- -->
+<div class="calendar">
+  <div id="container">
+    <div id="header">
+      <div class="headerGroup">
+        <div class="calTitle">The Daily Beat Calendar</div>
+        <div id="displayMonth"></div>
+        <div class="monthNavBtn">
+          <button id="backBtn">Back</button>
+          <button id="nextBtn">Next</button>
+        </div>
+      </div>
+    </div>
+    <div id="daysOfWeek">
+      <div class="weekDay">Sunday</div>
+      <div class="weekDay">Monday</div>
+      <div class="weekDay">Tuesday</div>
+      <div class="weekDay">Wednesday</div>
+      <div class="weekDay">Thursday</div>
+      <div class="weekDay">Friday</div>
+      <div class="weekDay">Saturday</div>
+    </div>
+    <div id="calApp"></div>
+  </div>
+  <div id="newEventInput">
+    <h2>New Event</h2>
+    <textarea id="eventTextInput" placeholder="Add Event"></textarea>
+    <button id="saveButton">Save</button>
+    <button id="cancelButton">Cancel</button>
+    </div>
+  <div id="deleteEventInput">
+    <h2>Delete Event</h2>
+    <p id="eventText"></p>
+    <div class="closeDeleteBtn">
+      <button id="deleteButton">Delete</button>
+      <button id="closeButton">Close</button>
+    </div>
+  </div>
+</div>
+    <div id="backDropShadow"></div>
+    <script src="../public/js/calendar-script.js"></script>
+
+<!-- ---------------------- Calendar --------------------------------- -->
+
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"crossorigin="anonymous"></script>
