@@ -143,13 +143,14 @@ body {
 }
 
 #nextBtn {
-    margin-left: -1em;
+    margin-left: -3em;
 }
 #backBtn {
-    margin-right: -1em;
+    margin-right: -3em;
 }
 
-button {
+#nextBtn,
+#backBtn {
   margin-bottom: 1em;
   width: 75px;
   cursor: pointer;
@@ -158,16 +159,19 @@ button {
   outline: none;
   padding: 5px;
   border-radius: 5px;
-  color: var(--White-Smoke);
-}
-
-button {
+  /* color: var(--White-Smoke); */
   background-color:#D65DB1;
   color: #4FFBDF;
   font-weight: bold;
+  font-size: 15px;
 }
 
-button:active {
+#nextBtn:active,
+#backBtn:active,
+#saveButton:active
+#cancelButton:active, 
+#deleteButton:active,
+#closeButton:active {
   transform: translate(2px, 2px);
   box-shadow: 2.5px 2.5px 1px 1px rgba(0, 0, 0, 0.438); 
 }
@@ -180,17 +184,21 @@ button:active {
 #header {
   margin-top: 3em;
   padding: 10px;
-  color: #d36c6c;
-  font-size: 26px;
+  /* color: #d36c6c; */
+  /* font-size: 26px; */
   font-family: sans-serif;
   display: flex;
   justify-content: center;
+  /* color: #4FFBDF;
+  font-weight: bold; */
 }
-#header {
-  background-color:#D65DB1;
-  color: #4FFBDF;
-  font-weight: bold;
+
+.headerGroup {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
+
 #container {
   width: 770px;
 }
@@ -270,7 +278,7 @@ button:active {
   box-shadow: none !important; 
 }
 
-h2 {
+.newEvent {
   color: #00C9A7;  
 }
 
