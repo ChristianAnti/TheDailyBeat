@@ -108,6 +108,7 @@ body {
 .calendar {
   display: flex;
   justify-content: center;
+  /* background-color: red; */
 }
 
 /* body {
@@ -181,7 +182,11 @@ body {
   color: #FFC75F;
 }
 
-#header {
+#calendar-container {
+  width: 770px;
+}
+
+#calendar-header {
   margin-top: 3em;
   padding: 10px;
   /* color: #d36c6c; */
@@ -199,9 +204,6 @@ body {
   flex-direction: column;
 }
 
-#container {
-  width: 770px;
-}
 #daysOfWeek {
   width: 100%;
   display: flex;
