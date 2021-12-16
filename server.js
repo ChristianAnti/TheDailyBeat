@@ -32,11 +32,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("./public"));
 
-// Requiring our routes
-// require("./routes/html-routes.js")(app);
-// require("./routes/api-routes.js")(app);
-app.use(routes);
-
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
 
@@ -45,6 +40,11 @@ var passport = require("./config/passport");
 app.use(session(sess));
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Requiring our routes
+// require("./routes/html-routes.js")(app);
+// require("./routes/api-routes.js")(app);
+app.use(routes);
 
 // requiring models for syncing
 var db = require("./models");
