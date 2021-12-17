@@ -5,16 +5,20 @@ const { Notes } = require('../models')
 
 // display info from database
 router.get("/", async (req, res) => {
-    const dbNotes = await Notes.findAll({
-        where:{
-            user_id: req.user.id
+    if (req.user) { // only if logged in
+        const dbNotes = await Notes.findAll({
+            where: {
+                user_id: req.user.id
+            }
+        })
+        let notes = [];
+        if (dbNotes) {
+            notes = dbNotes.map(note => note.get({ plain: true }));
         }
-    })
-    let notes = [];
-    if (dbNotes) {
-        notes = dbNotes.map(note => note.get({plain: true}));
+        res.render("members", { layout: "membersMain", notes })
+    }else{
+        res.redirect("/signup");
     }
-    res.render("members", {layout: "membersMain", notes})
 });
 
 
