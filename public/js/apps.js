@@ -2,72 +2,74 @@
 showNotes();
 
 // front end part of the adding notes 
-const newFormHandler = async (event) => {
-  event.preventDefault();
-  // add #notes-name, #notes-desc to the frontend // the querySelector for the adding notes .new-notes-form, .notes-list
+// const newFormHandler = async (event) => {
+//   event.preventDefault();
+//   // add #notes-name, #notes-desc to the frontend // the querySelector for the adding notes .new-notes-form, .notes-list
 
-  const name = document.querySelector('#notes-name').value.trim();
-  const description = document.querySelector('#notes-desc').value.trim();
+//   const name = document.querySelector('#notes-name').value.trim();
+//   const description = document.querySelector('#notes-desc').value.trim();
 
-  if (name && description) {
-    const response = await fetch(`/api/notes`, {
-      method: 'POST',
-      body: JSON.stringify({ name, description }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+//   if (name && description) {
+//     const response = await fetch(`/api/notes`, {
+//       method: 'POST',
+//       body: JSON.stringify({ name, description }),
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//     });
 
-    if (response.ok) {
-      document.location.replace('/members');
-    } else {
-      alert('Failed to create notes');
-    }
-  }
-};
+//     if (response.ok) {
+//       document.location.replace('/members');
+//     } else {
+//       alert('Failed to create notes');
+//     }
+//   }
+// };
+
+
 
 // If user adds a note, add it to the localStorage
 let addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", function(e) {
   // let addTitle = document.getElementById("addTitle");
   let addTxt = document.getElementById("addTxt");
-  let notes = localStorage.getItem("notes");
+  let notes = localStorage.getItem("notes"); // get
   if (notes == null) {
     notesObj = [];
   } else {
     notesObj = JSON.parse(notes);
   }
-  notesObj.push(addTxt.value);
+  notesObj.push(addTxt.value); // post create data in database
   localStorage.setItem("notes", JSON.stringify(notesObj));
   // addTitle.value = "";
   addTxt.value = "";
   // console.log(notesObj);
-  showNotes();
+  showNotes(); // get // handlebars can get // redirect or reload 
 });
 
 // Function to show elements from localStorage
 function showNotes() {
-  let notes = localStorage.getItem("notes");
-  if (notes == null) {
-    notesObj = [];
-  } else {
-    notesObj = JSON.parse(notes);
-  }
-  let html = "";
-  notesObj.forEach(function(element, index) {
-    html += `
-        <li class="list-group-item">
-            <h5 class="card-title">Note ${index + 1}</h5>
-            <p class="card-text"> ${element}</p>
-            <button id="${index}"onclick="deleteNote(this.id)" class="btn btn-primary">Delete Note</button>
-        </li>`;
-  });
-  let notesElm = document.getElementById("notes");
-  if (notesObj.length != 0) {
-    notesElm.innerHTML = html;
-  } else {
-    notesElm.innerHTML = `Nothing to show! Use "Save Note" section to add notes.`;
-  }
+  // let notes = localStorage.getItem("notes");
+  // if (notes == null) {
+  //   notesObj = [];
+  // } else {
+  //   notesObj = JSON.parse(notes);
+  // }
+  // let html = "";
+  // notesObj.forEach(function(element, index) {
+  //   html += `
+  //       <li class="list-group-item">
+  //           <h5 class="card-title">Note ${index + 1}</h5>
+  //           <p class="card-text"> ${element}</p>
+  //           <button id="${index}"onclick="deleteNote(this.id)" class="btn btn-primary">Delete Note</button>
+  //       </li>`;
+  // });
+  // let notesElm = document.getElementById("notes");
+  // if (notesObj.length != 0) {
+  //   notesElm.innerHTML = html;
+  // } else {
+  //   notesElm.innerHTML = `Nothing to show! Use "Save Note" section to add notes.`;
+  // }
 }
 
 // Function to delete a note
@@ -195,10 +197,10 @@ window.addEventListener('load', () => {
 });
 
 // the querySelector for the adding notes .new-notes-form, .notes-list
-document
-  .querySelector('.new-notes-form')
-  .addEventListener('submit', newFormHandler);
+// document
+//   .querySelector('.new-notes-form')
+//   .addEventListener('submit', newFormHandler);
 
-document
-  .querySelector('.notes-list')
-  .addEventListener('click', delButtonHandler);
+// document
+//   .querySelector('.notes-list')
+//   .addEventListener('click', delButtonHandler);

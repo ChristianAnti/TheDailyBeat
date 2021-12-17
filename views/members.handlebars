@@ -11,7 +11,14 @@
       <div class="notes-list col">
         <div class="saved-notes card" style="width: 18rem;">
           <div class="card-header">Your Notes</div>
-          <ul id="notes" class="list-group list-group-flush"></ul>
+          <ul id="notes" class="list-group list-group-flush">
+            {{#each notes as |note|}}
+            {{this.name}}
+
+            {{this.description}}
+
+            {{/each}}
+          </ul> 
         </div>
       </div>
     </div>

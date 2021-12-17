@@ -24,7 +24,7 @@ notes.init(
             defaultValue: DataTypes.NOW,
         },
         user_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER, // passport in req.user.id 
             references: {
                 model: "user",
                 key: "id",
