@@ -30,21 +30,35 @@ showNotes();
 
 // If user adds a note, add it to the localStorage
 let addBtn = document.getElementById("addBtn");
-addBtn.addEventListener("click", function(e) {
+addBtn.addEventListener("click", async (event) => {
+  event.preventDefault();
   // let addTitle = document.getElementById("addTitle");
-  let addTxt = document.getElementById("addTxt");
-  let notes = localStorage.getItem("notes"); // get
-  if (notes == null) {
-    notesObj = [];
-  } else {
-    notesObj = JSON.parse(notes);
+  const noteTitle = document.querySelector("#note-title").value.trim();
+  const description = document.querySelector("#description").value.trim();
+
+  if (noteTitle && description) {
+    const response = await fetch("/api/notes", {
+      method: "POST",
+      body: JSON.stringify({ name:noteTitle, description:description }),
+      headers: { "Content-Type": "application/json" },
+    });
+    console.log(response);
+    if (response.ok) {
+      document.location.replace("/");
+    } else {
+      alert("Failed to enter note you dummy.");
+    }
   }
-  notesObj.push(addTxt.value); // post create data in database
-  localStorage.setItem("notes", JSON.stringify(notesObj));
+  // let notes = localStorage.getItem("notes"); // get
+  // if (notes == null) {
+  //   notesObj = [];
+  // } else {
+  //   notesObj = JSON.parse(notes);
+  // }
   // addTitle.value = "";
-  addTxt.value = "";
+  // addTxt.value = "";
   // console.log(notesObj);
-  showNotes(); // get // handlebars can get // redirect or reload 
+ // get // handlebars can get // redirect or reload 
 });
 
 // Function to show elements from localStorage
@@ -74,7 +88,7 @@ function showNotes() {
 
 // Function to delete a note
 function deleteNote(index) {
-//   console.log("I am deleting", index);
+  //   console.log("I am deleting", index);
 
   let notes = localStorage.getItem("notes");
   if (notes == null) {
@@ -92,7 +106,7 @@ function deleteNote(index) {
 To do:
 1. Add Title
 2. Separate notes by user
-*/ 
+*/
 
 // console.log("JS connected!");
 // Display Time Function
@@ -104,7 +118,7 @@ function displayTime() {
   setTimeout(displayTime, 1000)
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
   displayTime();
 });
 
@@ -113,27 +127,27 @@ var quoteContainer = $('#quote-container')
 // Quote API Function
 function getQuote() {
   fetch("https://type.fit/api/quotes")
-      .then(res => {
-          return res.json()
-      })
-      .then(data => {
-          // Random quote and Author details from array
-          let chosenQuote = data[Math.floor(Math.random() * data.length)]
-          let author = ''
-          if (chosenQuote.author == null) {
-              author = 'anonymous'
-          } else {
-              author = chosenQuote.author
-          }
+    .then(res => {
+      return res.json()
+    })
+    .then(data => {
+      // Random quote and Author details from array
+      let chosenQuote = data[Math.floor(Math.random() * data.length)]
+      let author = ''
+      if (chosenQuote.author == null) {
+        author = 'anonymous'
+      } else {
+        author = chosenQuote.author
+      }
 
-          quoteContainer.addClass('animate__fadeIn')
-          setTimeout(() => {
-              quoteContainer.removeClass('animate__fadeIn')
-          }, 1000)
+      quoteContainer.addClass('animate__fadeIn')
+      setTimeout(() => {
+        quoteContainer.removeClass('animate__fadeIn')
+      }, 1000)
 
-          quoteContainer.empty()
-          quoteContainer.append(`"${chosenQuote.text}" -${author}`)
-      })
+      quoteContainer.empty()
+      quoteContainer.append(`"${chosenQuote.text}" -${author}`)
+    })
 }
 
 getQuote()
