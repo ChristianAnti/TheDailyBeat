@@ -28,7 +28,7 @@ router.post('/signup', async (req, res) => {
         console.log(userData)
         if (userData) {
             passport.authenticate("local")(req, res, function () {
-                res.redirect('/members')
+                res.redirect('/')
             })
         } else
             res.redirect(307, "/api/login");
@@ -37,9 +37,10 @@ router.post('/signup', async (req, res) => {
     }
 });
 
-router.post("/logout", async (req, res) => {
+// /api/user/logout
+router.get("/logout", async (req, res) => {
     req.logout();
-    res.redirect('/');
+    res.redirect('/login');
 });
 
 
