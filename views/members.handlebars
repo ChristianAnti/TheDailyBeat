@@ -2,7 +2,8 @@
   <nav class="navbar navbar-dark bg-dark">
     <div class="col">
       <h1 class="nav-header">Welcome {{{User}}} </h1>
-      <p id="current-time">Current Date/Time</p>
+      <button type="button" class="btn btn-light" id="logout">Logout</button>
+      <p id="current-time" class="text-light bg-dark">Current Date/Time</p>
     </div>
   </nav>
   <!-- List of notes -->
@@ -17,6 +18,7 @@
 
             {{this.description}}
 
+            {{this.date_created}}
             {{/each}}
           </ul> 
         </div>

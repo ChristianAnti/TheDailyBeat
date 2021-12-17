@@ -17,15 +17,16 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 
+// these are being handled by handlebars
 // Get notes route all notes
-router.get("/allNotes", async (req, res) => {
+// router.get("/allNotes", async (req, res) => {
 
-});
+// });
 
 // Get notes route Individual Note
-router.get("/singleNote", async (req, res) => {
+// router.get("/singleNote", async (req, res) => {
 
-});
+// });
 
 // save route
 router.post("/save", async (req, res) => {
