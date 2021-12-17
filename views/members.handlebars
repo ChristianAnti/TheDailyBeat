@@ -1,157 +1,158 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="col">
+    <h1 class="nav-header">Welcome {{{User}}} </h1>
+    <a href="/api/user/logout" type="button" class="btn btn-light" id="logout">Logout</a>
+    <p id="current-time" class="text-light bg-dark">Current Date/Time</p>
+  </div>
+</nav>
+<!-- List of notes -->
+<div class="main-planner container">
+  <div class="row align-items-start">
+    <div class="notes-list col">
+      <div class="saved-notes card" style="width: 18rem;">
+        <div class="card-header">Your Notes</div>
+        <ul id="notes" class="list-group list-group-flush">
+          {{#each notes as |note|}}
+          <li>
+            <h3>{{this.name}}</h3>
 
-  <nav class="navbar navbar-dark bg-dark">
-    <div class="col">
-      <h1 class="nav-header">Welcome {{{User}}} </h1>
-      <a href="/api/user/logout" type="button" class="btn btn-light" id="logout">Logout</a>
-      <p id="current-time" class="text-light bg-dark">Current Date/Time</p>
-    </div>
-  </nav>
-  <!-- List of notes -->
-  <div class="main-planner container">
-    <div class="row align-items-start">
-      <div class="notes-list col">
-        <div class="saved-notes card" style="width: 18rem;">
-          <div class="card-header">Your Notes</div>
-          <ul id="notes" class="list-group list-group-flush">
-            {{#each notes as |note|}}
-            {{this.name}}
+            <p>{{this.description}}</p>
 
-            {{this.description}}
-
-            {{this.date_created}}
-            {{/each}}
-          </ul> 
-        </div>
+            <h3>{{format_date this.date_created}}</h3>
+            </li>
+          {{/each}}
+        </ul>
       </div>
     </div>
   </div>
-  <!-- List of notes -->
-  <!-- New notes/rendered notes -->
-  <div class="planner-apps container">
-    <div class="new-notes">
-      <!-- <div class="card" style="width: 18rem;"> -->
-      <div class="card-body-notes">
-        <!-- card-body-->
-        <input class="note-title" placeholder="Note Title" maxlength="28" type="text" />
-        <textarea id="addTxt" class="note-textarea" placeholder="Note Text"></textarea>
-        <button id="addBtn" type="button" class="btn btn-outline-dark btn-sm"> Save Note
-          <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+</div>
+<!-- List of notes -->
+<!-- New notes/rendered notes -->
+<div class="planner-apps container">
+  <div class="new-notes">
+    <!-- <div class="card" style="width: 18rem;"> -->
+    <div class="card-body-notes">
+      <!-- card-body-->
+      <input class="note-title" id="note-title" placeholder="Note Title" maxlength="28" type="text" />
+      <textarea id="description" class="note-textarea" placeholder="Note Text"></textarea>
+      <button id="addBtn" type="button" class="btn btn-outline-dark btn-sm"> Save Note
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
           <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
           </svg> -->
-        </button>
-      </div>
-      <!-- </div> -->
+      </button>
     </div>
-    <div class="addt-apps row align-items-center">
-      <!-- Weather API - Daily -->
-      <div class="weather col">
-        <div class="card-container">
-          <section class="vh-80">
-            <div class="container py-5 h-80">
-              <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-md-10 col-lg-8 col-xl-6">
+    <!-- </div> -->
+  </div>
+  <div class="addt-apps row align-items-center">
+    <!-- Weather API - Daily -->
+    <div class="weather col">
+      <div class="card-container">
+        <section class="vh-80">
+          <div class="container py-5 h-80">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col-md-10 col-lg-8 col-xl-6">
 
-                  <div class="card text-white">
-                    <div class="bg-image">
-                      <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-weather/draw1.png"
-                        class="card-img" alt="weather" />
-                      <div class="mask" style="background-color: rgba(190, 216, 232, .5);"></div>
-                    </div>
-                    <div class="card-img-overlay text-dark p-5">
-                      <div class="container">
-                        <img src="" alt="" srcset="" id="weather-icon" />
-                        <div id="location">Unable to Fetch Weather</div>
-                        <div class="desc">No Information Available.</div>
-                        <div class="weather">
-                          <div class="c">Error</div>
-                          <div class="circle"></div>
-                          <div class="f">Error</div>
-                        </div>
-                        <div class="info">
-                          <h4>Sunrise: <span class="sunrise">No Information Available</span></h4>
-                          <h4>Sunset: <span class="sunset">No Information Available</span></h4>
-                        </div>
-                      </div>
-                      <!-- Weather API - Daily -->
-
-
-                    </div>
-                    <!-- New notes/rendered notes -->
+                <div class="card text-white">
+                  <div class="bg-image">
+                    <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-weather/draw1.png"
+                      class="card-img" alt="weather" />
+                    <div class="mask" style="background-color: rgba(190, 216, 232, .5);"></div>
                   </div>
+                  <div class="card-img-overlay text-dark p-5">
+                    <div class="container">
+                      <img src="" alt="" srcset="" id="weather-icon" />
+                      <div id="location">Unable to Fetch Weather</div>
+                      <div class="desc">No Information Available.</div>
+                      <div class="weather">
+                        <div class="c">Error</div>
+                        <div class="circle"></div>
+                        <div class="f">Error</div>
+                      </div>
+                      <div class="info">
+                        <h4>Sunrise: <span class="sunrise">No Information Available</span></h4>
+                        <h4>Sunset: <span class="sunset">No Information Available</span></h4>
+                      </div>
+                    </div>
+                    <!-- Weather API - Daily -->
+
+
+                  </div>
+                  <!-- New notes/rendered notes -->
                 </div>
-                <!-- <div>
+              </div>
+              <!-- <div>
               <h1>Meal Suggestions</h1>
               </div> -->
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
-    </div>
-
-    <!-- Quote API - New per day -->
-    <div class="quote col">
-      <div class="card card-quotes">
-        <div class="card-body-quotes">
-          <!-- card-body-->
-          <h5 class="card-title">Quote of the Day
-            <button id="quoteBtn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-quote"
-                viewBox="0 0 16 16">
-                <path
-                  d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z" />
-              </svg>
-            </button>
-          </h5>
-          <p class="card-text" id="quote-container">This is where the quote API will go.</p>
-        </div>
-      </div>
-    </div>
-    <!-- Quote API - New per day -->
-
-    <!--  Calendar  -->
-    <div class="calendar">
-      <div id="calendar-container">
-        <div id="calendar-header">
-          <div class="headerGroup">
-            <div class="calTitle">The Daily Beat Calendar</div>
-            <div id="displayMonth"></div>
-            <div class="monthNavBtn">
-              <button id="backBtn">Back</button>
-              <button id="nextBtn">Next</button>
             </div>
           </div>
-        </div>
-        <div id="daysOfWeek">
-          <div class="weekDay">Sunday</div>
-          <div class="weekDay">Monday</div>
-          <div class="weekDay">Tuesday</div>
-          <div class="weekDay">Wednesday</div>
-          <div class="weekDay">Thursday</div>
-          <div class="weekDay">Friday</div>
-          <div class="weekDay">Saturday</div>
-        </div>
-        <div id="calApp"></div>
-      </div>
-      <div id="newEventInput" style="display: none;">
-        <div class="newEvent-title">
-          <h1>New Event</h1>
-        </div>
-        <div><textarea id="eventTextInput" placeholder="Add Event"></textarea></div>
-        <div class="saveBtn">
-          <button id="saveButton">Save</button>
-          <button id="cancelButton">Cancel</button>
-        </div>
-      </div>
-      <div id="deleteEventInput" style="display: none;">
-        <h1>Delete Event</h1>
-        <p id="eventText"></p>
-        <div class="closeDeleteBtn">
-          <button id="deleteButton">Delete</button>
-          <button id="closeButton">Close</button>
-        </div>
+        </section>
       </div>
     </div>
-    <div id="backDropShadow"></div>
+  </div>
 
-    <!--  Calendar  -->
+  <!-- Quote API - New per day -->
+  <div class="quote col">
+    <div class="card card-quotes">
+      <div class="card-body-quotes">
+        <!-- card-body-->
+        <h5 class="card-title">Quote of the Day
+          <button id="quoteBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-quote"
+              viewBox="0 0 16 16">
+              <path
+                d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z" />
+            </svg>
+          </button>
+        </h5>
+        <p class="card-text" id="quote-container">This is where the quote API will go.</p>
+      </div>
+    </div>
+  </div>
+  <!-- Quote API - New per day -->
+
+  <!--  Calendar  -->
+  <div class="calendar">
+    <div id="calendar-container">
+      <div id="calendar-header">
+        <div class="headerGroup">
+          <div class="calTitle">The Daily Beat Calendar</div>
+          <div id="displayMonth"></div>
+          <div class="monthNavBtn">
+            <button id="backBtn">Back</button>
+            <button id="nextBtn">Next</button>
+          </div>
+        </div>
+      </div>
+      <div id="daysOfWeek">
+        <div class="weekDay">Sunday</div>
+        <div class="weekDay">Monday</div>
+        <div class="weekDay">Tuesday</div>
+        <div class="weekDay">Wednesday</div>
+        <div class="weekDay">Thursday</div>
+        <div class="weekDay">Friday</div>
+        <div class="weekDay">Saturday</div>
+      </div>
+      <div id="calApp"></div>
+    </div>
+    <div id="newEventInput" style="display: none;">
+      <div class="newEvent-title">
+        <h1>New Event</h1>
+      </div>
+      <div><textarea id="eventTextInput" placeholder="Add Event"></textarea></div>
+      <div class="saveBtn">
+        <button id="saveButton">Save</button>
+        <button id="cancelButton">Cancel</button>
+      </div>
+    </div>
+    <div id="deleteEventInput" style="display: none;">
+      <h1>Delete Event</h1>
+      <p id="eventText"></p>
+      <div class="closeDeleteBtn">
+        <button id="deleteButton">Delete</button>
+        <button id="closeButton">Close</button>
+      </div>
+    </div>
+  </div>
+  <div id="backDropShadow"></div>
+
+  <!--  Calendar  -->
