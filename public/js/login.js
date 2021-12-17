@@ -1,17 +1,17 @@
 const loginEventHandler = async (event) => {
   event.preventDefault();
-  const username = document.querySelector("#input-username").value.trim();
-  const password = document.querySelector("#input-password").value.trim();
+  const username = document.querySelector("#username").value.trim();
+  const password = document.querySelector("#password").value.trim();
 
   if (username && password) {
-    const response = await fetch("/api/users/login", {
+    const response = await fetch("/api/user/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
     });
-
+    console.log(response);
     if (response.ok) {
-      document.location.replace("/dashboard");
+      document.location.replace("/");
     } else {
       alert("Failed to login.");
     }
@@ -24,7 +24,7 @@ const loginEventHandler = async (event) => {
 };
 
 // need to create the handlebars for this with the class -- login-form --
-document.querySelector(".login-form").addEventListener("submit", loginEventHandler);
+document.querySelector("#login-form").addEventListener("submit", loginEventHandler);
 
 
 // ------------------------------------------------------------------------------------------------------------------------------------

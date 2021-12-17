@@ -17,7 +17,8 @@ router.get("/", (req, res) => {
 
 // /api/user/login
 router.post("/login", passport.authenticate("local"), function (req, res) {
-    res.redirect('/members')
+    // res.redirect('/')
+    res.json(req.user);
 });
 
 // /api/user/signup
