@@ -7,7 +7,7 @@ router.post('/', withAuth, async (req, res) => {
     try {
         const newNotes = await Notes.create({
             ...req.body,
-            user_id: req.session.user_id,
+            user_id: req.user.id,
         });
 
         res.status(200).json(newNotes);

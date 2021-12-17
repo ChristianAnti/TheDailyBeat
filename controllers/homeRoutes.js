@@ -2,7 +2,8 @@ const router = require('express').Router();
 
 // display info from database
 router.get("/", (req, res) => {
-    res.render("members")
+    res.render("members", {layout: "membersMain"})
+    
 });
 
 // each page will have a route
