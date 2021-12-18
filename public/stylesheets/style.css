@@ -53,6 +53,13 @@ body {
 
 }
 
+.notes-input-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
 .card {
   background-color: transparent;
   border: none;
@@ -406,6 +413,11 @@ h1 {
   position: absolute;
   background-color: rgba(0,0,0,0.8);
   margin-top: 110em;
+}
+
+.ul {
+  display: flex;
+  justify-content: flex-start;
 }
 
 /* ------------------------Calendar---------------------------- */
