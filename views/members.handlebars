@@ -8,23 +8,26 @@
 <!-- List of notes -->
 <div class="main-planner container">
   <div class="row align-items-start">
-    <div class="notes-list col">
+    <div class="notes-input-top">
       <div class="saved-notes card" style="width: 18rem;">
-        <div class="card-header">Your Notes</div>
         <ul id="notes" class="list-group list-group-flush">
-          {{#each notes as |note|}}
-          <li>
-            <h3>{{this.name}}</h3>
+          <div class="card text-dark bg-info mb-3" style="max-width: 18rem;">
+            <div class="card-header">Your notes</div>
+            {{#each notes as |note|}}
+            <ul>
+              <h5 class="card-title ">{{this.name}}</h5>
 
-            <p>{{this.description}}</p>
+              <h5 class="card-title ">{{format_date this.date_created}}</h5>
 
-            <h3>{{format_date this.date_created}}</h3>
-            </li>
-          {{/each}}
+              <p class="">{{this.description}}</p>
+
+            </ul>
+            {{/each}}
         </ul>
       </div>
     </div>
   </div>
+</div>
 </div>
 <!-- List of notes -->
 <!-- New notes/rendered notes -->
