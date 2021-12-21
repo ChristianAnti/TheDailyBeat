@@ -16,19 +16,19 @@ https://github.com/ChristianAnti/TheDailyBeat
 
 ## Desktop
 
-![](wireMock.jpg)
+![](./assets/wireMock.jpg)
 
 # Application Preview
 
-![](login.jpg)
+![](./assets/login.jpg)
 
-![](weatherGeoLocation.jpg)
+![](./assets/weatherGeoLocation.jpg)
 
-![](navBarAndNotes.jpg)
+![](./assets/navBarAndNotes.jpg)
 
-![](weatherInsQuote.jpg)
+![](./assets/weatherInsQuote.jpg)
 
-![](scheduleEventAndCalendar.jpg)
+![](./assets/scheduleEventAndCalendar.jpg)
 
 # Acceptance Criteria
 
