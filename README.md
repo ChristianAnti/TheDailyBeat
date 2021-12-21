@@ -6,19 +6,32 @@ We have created the ability to make daily life easier for our users.  When using
 
 This application will use applications such as multiple APIs, Handlbars.js, MySQL, Heroku, Node.js, Express.js.
 
-# Link to Live Site & Git Hub
+## Table of Contents
+* [Links](#links)
+
+* [Wireframe](#wireframe)
+
+* [Preview](#preview)
+
+* [Criteria](#criteria)
+
+* [Credits](#credits)
+
+* [License](#license)
+
+# Links
 
 https://sleepy-scrubland-38633.happ.com/signuperoku
 
 https://github.com/ChristianAnti/TheDailyBeat
 
-# Wireframe for the website
+# Wireframe
 
 ## Desktop
 
 ![](./assets/wireMock.jpg)
 
-# Application Preview
+# Preview
 
 ![](./assets/login.jpg)
 
@@ -30,7 +43,7 @@ https://github.com/ChristianAnti/TheDailyBeat
 
 ![](./assets/scheduleEventAndCalendar.jpg)
 
-# Acceptance Criteria
+# Criteria
 
 A user can Sign up and be sent to their planner desktop.
 
